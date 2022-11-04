@@ -2,13 +2,11 @@ import './App.css';
 import { Mainroutes } from './Routes/Mainroutes';
 
 function App() {
-	return (
-		<div>
-			<main>
-				<Mainroutes></Mainroutes>
-			</main>
-		</div>
-	);
+  return (
+    <main>
+      <Mainroutes></Mainroutes>
+    </main>
+  );
 }
 
 export default App;
