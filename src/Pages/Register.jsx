@@ -52,7 +52,7 @@ export const Register = () => {
 		)
 			.then(authusercredentials => {
 				console.log('credentials', authusercredentials);
-				alert('Formulario recibido');
+				alert('Usuario Registrado');
 				navigate('/reglas');
 			})
 			.catch(error => {
@@ -62,8 +62,10 @@ export const Register = () => {
 	};
 
 	return (
-		<div>
+		<div className="m-4">
 			<form onSubmit={handleOnSubmit}>
+        <div className="row">
+        <div className="col-md-6">
 				<label className='form-label'>Email:</label>
 				<input
 					className='form-control'
@@ -71,13 +73,25 @@ export const Register = () => {
 					name='email'
 					onChange={handleOnChange}
 				></input>
-				<label className='form-label'>Nombre:</label>
-				<input
-					className='form-control'
-					type='text'
-					name='name'
-					onChange={handleOnChange}
-				></input>
+      </div>
+          <div className="col-md-6" >
+				  <label className='form-label'>Nombre:</label>
+  				<input
+  					className='form-control'
+  					type='text'
+  					name='name'
+  					onChange={handleOnChange}
+  				></input>
+      </div>
+      </div>
+        <div className="row" >
+          <div className="col-md-6"></div>
+          <div className="col-md-6"></div>
+        </div>
+        <div className="row" >
+          <div className="col-md-6"></div>
+          <div className="col-md-6"></div>
+        </div>
 				<label className='form-label'>Apellido:</label>
 				<input
 					className='form-control'
