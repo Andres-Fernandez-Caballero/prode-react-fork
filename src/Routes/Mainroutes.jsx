@@ -4,6 +4,7 @@ import { NotRequireAuth } from '../Components/NotRequireAuth';
 import { RequireAuth } from '../Components/RequireAuth';
 import { FormularioLoginTuProde } from '../Pages/FormularioLoginTuProde';
 import { Home } from '../Pages/Home';
+import {NotFound} from '../Pages/NotFound';
 import { Login } from '../Pages/Login';
 import { ProdeDetalle } from '../Pages/ProdeDetalle';
 import { Register } from '../Pages/Register';
@@ -29,7 +30,7 @@ export const Mainroutes = () => {
 			<Route element={<RequireAuth />}>
 				{/* rutas que se pueden acceder al estar logueado */}
 				<Route
-					index
+					path='/'
 					element={
 						<NavigableLayer>
 							<Home />
@@ -81,7 +82,7 @@ export const Mainroutes = () => {
 			/>
 
 			{/* Rutas que no existen */}
-			<Route path='*' element={<h1>404: Not Found</h1>} />
+			<Route path='*' element={<NotFound/>} />
 		</Routes>
 	);
 };
