@@ -24,7 +24,7 @@ const ProdeUsuarioProviderLayer = ({ uid, prodeFontFunction, children }) => {
 			if (prode === null && _puntos === null) {
 				setGlobalProde({});
 			} else if (prode !== null) {
-				prode.puntos = _puntos===null?undefined : _puntos;
+				prode.puntos = _puntos === null ? undefined : _puntos;
 				setGlobalProde(prode);
 			}
 			setIsLoading(true);

@@ -62,65 +62,72 @@ export const Register = () => {
 	};
 
 	return (
-		<div className="m-4">
+		<div className='m-5'>
+			<h1>Registro</h1>
 			<form onSubmit={handleOnSubmit}>
-        <div className="row">
-        <div className="col-md-6">
-				<label className='form-label'>Email:</label>
-				<input
-					className='form-control'
-					type='text'
-					name='email'
-					onChange={handleOnChange}
-				></input>
-      </div>
-          <div className="col-md-6" >
-				  <label className='form-label'>Nombre:</label>
-  				<input
-  					className='form-control'
-  					type='text'
-  					name='name'
-  					onChange={handleOnChange}
-  				></input>
-      </div>
-      </div>
-        <div className="row" >
-          <div className="col-md-6"></div>
-          <div className="col-md-6"></div>
-        </div>
-        <div className="row" >
-          <div className="col-md-6"></div>
-          <div className="col-md-6"></div>
-        </div>
-				<label className='form-label'>Apellido:</label>
-				<input
-					className='form-control'
-					type='text'
-					name='lastname'
-					onChange={handleOnChange}
-				></input>
-				<label className='form-label'>Teléfono:</label>
-				<input
-					className='form-control'
-					type='text'
-					name='phone'
-					onChange={handleOnChange}
-				></input>
-				<label className='form-label'>Contraseña:</label>
-				<input
-					className='form-control'
-					type='password'
-					name='password'
-					onChange={handleOnChange}
-				></input>
-				<label className='form-label'>Repita contraseña:</label>
-				<input
-					className='form-control'
-					type='password'
-					name='repeatpassword'
-					onChange={handleOnChange}
-				></input>
-				<button className='btn btn-primary' type='submit'>
+				<div className='row'>
+					<div className='col-md-6'>
+						<label className='form-label'>Apellido:</label>
+						<input
+							className='form-control'
+							type='text'
+							name='lastname'
+							onChange={handleOnChange}
+						></input>
+					</div>
+					<div className='col-md-6'>
+						<label className='form-label'>Nombre:</label>
+						<input
+							className='form-control'
+							type='text'
+							name='name'
+							onChange={handleOnChange}
+						></input>
+					</div>
+				</div>
+
+				<div className='row'>
+					<div className='col-md-6'>
+						<label className='form-label'>Email:</label>
+						<input
+							className='form-control'
+							type='text'
+							name='email'
+							onChange={handleOnChange}
+						></input>
+					</div>
+					<div className='col-md-6'>
+						<label className='form-label'>Teléfono:</label>
+						<input
+							className='form-control'
+							type='text'
+							name='phone'
+							onChange={handleOnChange}
+						></input>
+					</div>
+				</div>
+				<div className='row'>
+					<div className='col-md-6'>
+						<label className='form-label'>Contraseña:</label>
+						<input
+							className='form-control'
+							type='password'
+							name='password'
+							onChange={handleOnChange}
+						></input>
+					</div>
+					<div className='col-md-6'>
+						<label className='form-label'>Repita contraseña:</label>
+						<input
+							className='form-control'
+							type='password'
+							name='repeatpassword'
+							onChange={handleOnChange}
+						></input>
+					</div>
+				</div>
+
+				<button className='my-3 btn btn-primary' type='submit'>
 					Registrar
 				</button>
 			</form>
