@@ -46,7 +46,10 @@ const ProdeUsuarioLogic = ({ uid, isEditable = false }) => {
 							Guardar
 						</button>
 					)}
-					<h2>Ronda de Grupos</h2>
+					<p>
+						Para grabar los datos de TU PRODE apriete el botón de
+						guardar al final.
+					</p>
 					<Preliminares />
 					<Octavos />
 					<Torneo />
