@@ -16,8 +16,11 @@ h1 {
 
 .prodeboton {
 	position: fixed !important;
-	height: 100px;
-	width: 400px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 5rem;
+	width: 15rem;
 	background-color: darkorange;
 	color: white;
 	font-size: 2em;
