@@ -23,6 +23,10 @@
 	font-size: calc(10px + 2vmin);
 	color: white;
 }
+.App-header .imagen-login {
+	width: 40%;
+	height: 40%;
+}
 
 .App-link {
 	color: #61dafb;
@@ -34,5 +38,12 @@
 	}
 	to {
 		transform: rotate(360deg);
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	.App-header .imagen-login {
+		width: 80%;
+		height: 80%;
 	}
 }

@@ -3,15 +3,14 @@ import AuthConsumer from './../Hooks/UseAuth';
 export const Home = () => {
 	const { signedout } = AuthConsumer();
 	return (
-		<div>
+		<div className='container m-3'>
 			<h1>Home</h1>
-			<section>
-				<h2>
-					{process.env.REACT_APP_CANTIDAD_USUARIOS} Personas
-					inscriptas
-				</h2>
-			</section>
-			<button onClick={signedout} className='btn btn-danger'>
+
+			<h2>
+				{process.env.REACT_APP_CANTIDAD_USUARIOS} Personas inscriptas
+			</h2>
+
+			<button onClick={signedout} className='btn btn-danger text-center'>
 				Log Out
 			</button>
 		</div>

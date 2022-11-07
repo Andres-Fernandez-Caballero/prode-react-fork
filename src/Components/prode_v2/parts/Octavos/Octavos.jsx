@@ -9,6 +9,10 @@ const Octavos = () => {
 	return (
 		<>
 			<h2>Octavos</h2>
+			<h4>
+				Elija los equipos primeros y segundos de cada grupo
+				respectivamente.
+			</h4>
 			<section>
 				{Object.keys(equipos).map((grupoNombre, index) => (
 					<PrimeroYsegundo

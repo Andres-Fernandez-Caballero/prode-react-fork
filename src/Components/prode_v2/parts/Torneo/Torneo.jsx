@@ -12,116 +12,120 @@ const Torneo = () => {
 	};
 
 	return (
-		<div className='bracket'>
-			<section className='round of16'>
-				<div className='winners'>
-					<div className='matchups'>
-						<div className='matchup'>
-							<div className='participants'>
-								<div className='participant'>
-									<span>{getOctavoByKey('1-a')}</span>
-								</div>
-								<div className='participant'>
-									<span>{getOctavoByKey('2-b')}</span>
+		<div>
+			<h4 className='mt-4'>
+				Elija los equipos primeros y segundos de cada grupo
+				respectivamente.
+			</h4>
+			<div className='bracket'>
+				<section className='round of16'>
+					<div className='winners'>
+						<div className='matchups'>
+							<div className='matchup'>
+								<div className='participants'>
+									<div className='participant'>
+										<span>{getOctavoByKey('1-a')}</span>
+									</div>
+									<div className='participant'>
+										<span>{getOctavoByKey('2-b')}</span>
+									</div>
 								</div>
 							</div>
-						</div>
 
-						<div className='matchup'>
-							<div className='participants'>
-								<div className='participant'>
-									<span>{getOctavoByKey('1-c')}</span>
-								</div>
-								<div className='participant'>
-									<span>{getOctavoByKey('2-d')}</span>
+							<div className='matchup'>
+								<div className='participants'>
+									<div className='participant'>
+										<span>{getOctavoByKey('1-c')}</span>
+									</div>
+									<div className='participant'>
+										<span>{getOctavoByKey('2-d')}</span>
+									</div>
 								</div>
 							</div>
 						</div>
+						<LineaTorneoConectora />
 					</div>
-					<LineaTorneoConectora />
-				</div>
-				<div className='winners'>
-					<div className='matchups'>
-						<div className='matchup'>
-							<div className='participants'>
-								<div className='participant'>
-									<span>{getOctavoByKey('1-e')}</span>
+					<div className='winners'>
+						<div className='matchups'>
+							<div className='matchup'>
+								<div className='participants'>
+									<div className='participant'>
+										<span>{getOctavoByKey('1-e')}</span>
+									</div>
+									<div className='participant'>
+										<span>{getOctavoByKey('2-f')}</span>
+									</div>
 								</div>
-								<div className='participant'>
-									<span>{getOctavoByKey('2-f')}</span>
+							</div>
+							<div className='matchup'>
+								<div className='participants'>
+									<div className='participant'>
+										<span>{getOctavoByKey('1-g')}</span>
+									</div>
+									<div className='participant'>
+										<span>{getOctavoByKey('2-h')}</span>
+									</div>
 								</div>
 							</div>
 						</div>
-						<div className='matchup'>
-							<div className='participants'>
-								<div className='participant'>
-									<span>{getOctavoByKey('1-g')}</span>
-								</div>
-								<div className='participant'>
-									<span>{getOctavoByKey('2-h')}</span>
-								</div>
-							</div>
-						</div>
+						<LineaTorneoConectora />
 					</div>
-					<LineaTorneoConectora />
-				</div>
-				<div className='winners'>
-					<div className='matchups'>
-						<div className='matchup'>
-							<div className='participants'>
-								<div className='participant'>
-									<span>{getOctavoByKey('1-b')}</span>
+					<div className='winners'>
+						<div className='matchups'>
+							<div className='matchup'>
+								<div className='participants'>
+									<div className='participant'>
+										<span>{getOctavoByKey('1-b')}</span>
+									</div>
+									<div className='participant'>
+										<span>{getOctavoByKey('2-a')}</span>
+									</div>
 								</div>
-								<div className='participant'>
-									<span>{getOctavoByKey('2-a')}</span>
+							</div>
+							<div className='matchup'>
+								<div className='participants'>
+									<div className='participant'>
+										<span>{getOctavoByKey('1-d')}</span>
+									</div>
+									<div className='participant'>
+										<span>{getOctavoByKey('2-c')}</span>
+									</div>
 								</div>
 							</div>
 						</div>
-						<div className='matchup'>
-							<div className='participants'>
-								<div className='participant'>
-									<span>{getOctavoByKey('1-d')}</span>
-								</div>
-								<div className='participant'>
-									<span>{getOctavoByKey('2-c')}</span>
-								</div>
-							</div>
-						</div>
+						<LineaTorneoConectora />
 					</div>
-					<LineaTorneoConectora />
-				</div>
-				<div className='winners'>
-					<div className='matchups'>
-						<div className='matchup'>
-							<div className='participants'>
-								<div className='participant'>
-									<span>{getOctavoByKey('1-f')}</span>
+					<div className='winners'>
+						<div className='matchups'>
+							<div className='matchup'>
+								<div className='participants'>
+									<div className='participant'>
+										<span>{getOctavoByKey('1-f')}</span>
+									</div>
+									<div className='participant'>
+										<span>{getOctavoByKey('2-e')}</span>
+									</div>
 								</div>
-								<div className='participant'>
-									<span>{getOctavoByKey('2-e')}</span>
+							</div>
+							<div className='matchup'>
+								<div className='participants'>
+									<div className='participant'>
+										<span>{getOctavoByKey('1-h')}</span>
+									</div>
+									<div className='participant'>
+										<span>{getOctavoByKey('2-g')}</span>
+									</div>
 								</div>
 							</div>
 						</div>
-						<div className='matchup'>
-							<div className='participants'>
-								<div className='participant'>
-									<span>{getOctavoByKey('1-h')}</span>
-								</div>
-								<div className='participant'>
-									<span>{getOctavoByKey('2-g')}</span>
-								</div>
-							</div>
-						</div>
+						<LineaTorneoConectora />
 					</div>
-					<LineaTorneoConectora />
-				</div>
-			</section>
-			<section className='round quarterfinals'>
-				<div className='winners'>
-					<div className='matchups'>
-						<div className='matchup'>
-							<div className='participants'>
-								<div className={'participant'}>
+				</section>
+				<section className='round quarterfinals'>
+					<div className='winners'>
+						<div className='matchups'>
+							<div className='matchup'>
+								<div className='participants'>
 									<SelectorEquipo
 										equipos={[
 											getOctavoByKey('1-a'),
@@ -131,8 +135,7 @@ const Torneo = () => {
 										onChange={handleOnChangeTorneo}
 										titleEmptyValue='CUARTOS'
 									/>
-								</div>
-								<div className={'participant'}>
+
 									<SelectorEquipo
 										equipos={[
 											getOctavoByKey('1-c'),
@@ -144,10 +147,8 @@ const Torneo = () => {
 									/>
 								</div>
 							</div>
-						</div>
-						<div className='matchup'>
-							<div className='participants'>
-								<div className={'participant'}>
+							<div className='matchup'>
+								<div className='participants'>
 									<SelectorEquipo
 										equipos={[
 											getOctavoByKey('1-e'),
@@ -157,8 +158,6 @@ const Torneo = () => {
 										onChange={handleOnChangeTorneo}
 										titleEmptyValue='CUARTOS'
 									/>
-								</div>
-								<div className={'participant'}>
 									<SelectorEquipo
 										equipos={[
 											getOctavoByKey('1-g'),
@@ -171,14 +170,12 @@ const Torneo = () => {
 								</div>
 							</div>
 						</div>
+						<LineaTorneoConectora />
 					</div>
-					<LineaTorneoConectora />
-				</div>
-				<div className='winners'>
-					<div className='matchups'>
-						<div className='matchup'>
-							<div className='participants'>
-								<div className={'participant'}>
+					<div className='winners'>
+						<div className='matchups'>
+							<div className='matchup'>
+								<div className='participants'>
 									<SelectorEquipo
 										equipos={[
 											getOctavoByKey('1-b'),
@@ -188,8 +185,6 @@ const Torneo = () => {
 										onChange={handleOnChangeTorneo}
 										titleEmptyValue='CUARTOS'
 									/>
-								</div>
-								<div className={'participant'}>
 									<SelectorEquipo
 										equipos={[
 											getOctavoByKey('1-d'),
@@ -201,10 +196,8 @@ const Torneo = () => {
 									/>
 								</div>
 							</div>
-						</div>
-						<div className='matchup'>
-							<div className='participants'>
-								<div className={'participant'}>
+							<div className='matchup'>
+								<div className='participants'>
 									<SelectorEquipo
 										equipos={[
 											getOctavoByKey('1-f'),
@@ -214,8 +207,6 @@ const Torneo = () => {
 										onChange={handleOnChangeTorneo}
 										titleEmptyValue='CUARTOS'
 									/>
-								</div>
-								<div className={'participant'}>
 									<SelectorEquipo
 										equipos={[
 											getOctavoByKey('1-h'),
@@ -228,16 +219,14 @@ const Torneo = () => {
 								</div>
 							</div>
 						</div>
+						<LineaTorneoConectora />
 					</div>
-					<LineaTorneoConectora />
-				</div>
-			</section>
-			<section className='round semifinals'>
-				<div className='winners'>
-					<div className='matchups'>
-						<div className='matchup'>
-							<div className='participants'>
-								<div className={'participant'}>
+				</section>
+				<section className='round semifinals'>
+					<div className='winners'>
+						<div className='matchups'>
+							<div className='matchup'>
+								<div className='participants'>
 									<SelectorEquipo
 										equipos={[
 											getTorneoByKey('cuartos-a-1'),
@@ -247,8 +236,6 @@ const Torneo = () => {
 										onChange={handleOnChangeTorneo}
 										titleEmptyValue='SEMIFINAL'
 									/>
-								</div>
-								<div className={'participant'}>
 									<SelectorEquipo
 										equipos={[
 											getTorneoByKey('cuartos-b-1'),
@@ -260,10 +247,8 @@ const Torneo = () => {
 									/>
 								</div>
 							</div>
-						</div>
-						<div className='matchup'>
-							<div className='participants'>
-								<div className={'participant'}>
+							<div className='matchup'>
+								<div className='participants'>
 									<SelectorEquipo
 										equipos={[
 											getTorneoByKey('cuartos-c-1'),
@@ -273,8 +258,6 @@ const Torneo = () => {
 										onChange={handleOnChangeTorneo}
 										titleEmptyValue='SEMIFINAL'
 									/>
-								</div>
-								<div className={'participant'}>
 									<SelectorEquipo
 										equipos={[
 											getTorneoByKey('cuartos-d-1'),
@@ -287,16 +270,14 @@ const Torneo = () => {
 								</div>
 							</div>
 						</div>
+						<LineaTorneoConectora />
 					</div>
-					<LineaTorneoConectora />
-				</div>
-			</section>
-			<section className='round finals'>
-				<div className='winners'>
-					<div className='matchups'>
-						<div className='matchup'>
-							<div className='participants'>
-								<div className={'participant'}>
+				</section>
+				<section className='round finals'>
+					<div className='winners'>
+						<div className='matchups'>
+							<div className='matchup'>
+								<div className='participants'>
 									<SelectorEquipo
 										equipos={[
 											getTorneoByKey('semi-a-1'),
@@ -306,8 +287,6 @@ const Torneo = () => {
 										onChange={handleOnChangeTorneo}
 										titleEmptyValue='FINAL'
 									/>
-								</div>
-								<div className={'participant'}>
 									<SelectorEquipo
 										equipos={[
 											getTorneoByKey('semi-b-1'),
@@ -321,15 +300,13 @@ const Torneo = () => {
 							</div>
 						</div>
 					</div>
-				</div>
-			</section>
-			<section className='round champion'>
-				<div className='winners'>
-					<div className='matchups'>
-						<div className='matchup'>
-							<div className='participants'>
-								<div className={'participant'}>
-									<p>Campeon</p>
+				</section>
+				<section className='round champion'>
+					<div className='winners'>
+						<div className='matchups'>
+							<div className='matchup'>
+								<div className='participants'>
+									<label>Campeon</label>
 									<SelectorEquipo
 										equipos={[
 											getTorneoByKey('final-a'),
@@ -341,22 +318,16 @@ const Torneo = () => {
 									/>
 								</div>
 							</div>
-						</div>
-						<div className='matchup'>
-							<div className='participants'>
-								<div className={'participant'}>
-									<p>Tercero</p>
+							<div className='matchup'>
+								<div className='participants'>
+									<label>Tercero</label>
 									<SelectorEquipo
-										equipos={[
-											getTorneoByKey('final-a') ===
-											getTorneoByKey('semi-a-1')
-												? getTorneoByKey('semi-a-1')
-												: getTorneoByKey('semi-a-2'),
-											getTorneoByKey('final-b') ===
-											getTorneoByKey('semi-b-1')
-												? getTorneoByKey('semi-b-1')
-												: getTorneoByKey('semi-b-2'),
-										]}
+										equipos={
+											[
+												getTorneoByKey('final-a') === getTorneoByKey('semi-a-1')? getTorneoByKey('semi-a-2') : getTorneoByKey('semi-a-1'),
+												getTorneoByKey('final-b') === getTorneoByKey('semi-b-1')? getTorneoByKey('semi-b-2') : getTorneoByKey('semi-b-1'),
+											]
+										}
 										keySelector='tercero'
 										onChange={handleOnChangeTorneo}
 										titleEmptyValue='TERCERO'
@@ -365,8 +336,8 @@ const Torneo = () => {
 							</div>
 						</div>
 					</div>
-				</div>
-			</section>
+				</section>
+			</div>
 		</div>
 	);
 };

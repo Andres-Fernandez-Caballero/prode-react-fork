@@ -6,26 +6,25 @@ import Preliminares from '../../parts/Preliminares';
 import Torneo from '../../parts/Torneo';
 import ConsumerProdeContext from '../../ProdeProvider';
 import { storeUserProde } from './../../../../database/services/prodeService';
-import {useNavigate} from 'react-router-dom'
 
 const ProdeUsuarioLogic = ({ uid, isEditable = false }) => {
-	const { prode, octavosNoEsValido, torneoNoEsValido } = ConsumerProdeContext();
+	const { prode, octavosNoEsValido, torneoNoEsValido, _puntos } =
+		ConsumerProdeContext();
 	const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
+	console.log('torneo', _puntos);
 
 	const handleOnClickToSave = async () => {
 		try {
 			setIsLoading(true);
-      if(torneoNoEsValido() ){
-        alert('No pueden haber dos equipos iguale en torneo')
-      } else
-      if(octavosNoEsValido()) {
-        alert('No pueden haber equipos iguales en octavos')
-      } else {
-	  		await storeUserProde(uid, prode);
-  			showToast('⚽ Prode guardado!')
-      }
-  		setIsLoading(false);
+			if (torneoNoEsValido()) {
+				alert('No pueden haber dos equipos iguale en torneo');
+			} else if (octavosNoEsValido()) {
+				alert('No pueden haber equipos iguales en octavos');
+			} else {
+				await storeUserProde(uid, prode);
+				showToast('⚽ Prode guardado!');
+			}
+			setIsLoading(false);
 		} catch (error) {
 			console.error(error);
 			alert('Error al guardar el prode');
@@ -47,7 +46,10 @@ const ProdeUsuarioLogic = ({ uid, isEditable = false }) => {
 							Guardar
 						</button>
 					)}
-					<h2>Ronda de Grupos</h2>
+					<p>
+						Para grabar los datos de TU PRODE apriete el botón de
+						guardar al final.
+					</p>
 					<Preliminares />
 					<Octavos />
 					<Torneo />
