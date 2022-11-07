@@ -39,10 +39,15 @@ const Partido = ({ partido }) => {
 	};
 
 	const style = { height: '32px', weight: '32px' };
-	const divstyle = { backgroundColor: colorPuntaje() };
+	const divstyle = {
+		backgroundColor: colorPuntaje(),
+		padding: '8px',
+		margin: '0',
+		alingItems: 'center',
+	};
 	return (
-		<div className='partidocontainer row' style={divstyle}>
-			<p className='equipo col-md-2'>{partido.equipoA}</p>
+		<div className=' row' style={divstyle}>
+			<p className='equipo col-md-3'>{partido.equipoA}</p>
 			<input
 				name='golesequipoA'
 				style={style}
@@ -52,7 +57,9 @@ const Partido = ({ partido }) => {
 				value={partido.golesequipoA}
 			></input>
 
-			<p className='col-md-1'> - </p>
+			<p className='col-md-2 text-center'>
+				<strong> - </strong>
+			</p>
 			<input
 				name='golesequipoB'
 				style={style}
@@ -61,7 +68,7 @@ const Partido = ({ partido }) => {
 				onChange={handleOnChange}
 				value={partido.golesequipoB}
 			></input>
-			<p className='equipo col-md-2'>{partido.equipoB}</p>
+			<p className='equipo col-md-3'>{partido.equipoB}</p>
 		</div>
 	);
 };
