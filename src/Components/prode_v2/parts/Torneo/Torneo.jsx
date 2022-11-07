@@ -324,7 +324,8 @@ const Torneo = () => {
 									<SelectorEquipo
 										equipos={
 											[
-												// getTorneoByKey('final-a') === getTorneoByKey('campeon')? getTorneoByKey('final-b') : getTorneoByKey('final-a'),
+												getTorneoByKey('final-a') === getTorneoByKey('semi-a-1')? getTorneoByKey('semi-a-2') : getTorneoByKey('semi-a-1'),
+												getTorneoByKey('final-b') === getTorneoByKey('semi-b-1')? getTorneoByKey('semi-b-2') : getTorneoByKey('semi-b-1'),
 											]
 										}
 										keySelector='tercero'
