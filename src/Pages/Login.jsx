@@ -10,7 +10,7 @@ export const Login = () => {
 		<header className='App-header'>
 			<h1>TU PRODE</h1>
 			<img
-				className='img-fluid'
+				className='imagen-login img-fluid'
 				height='300'
 				width='300'
 				src='https://www.benditofutbol.com/files/article_main/uploads/2014/09/05/5409da78a6a0f.jpg'
