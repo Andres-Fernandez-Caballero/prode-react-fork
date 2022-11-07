@@ -2,7 +2,7 @@ import './Reglas.css';
 
 export const Reglas = () => {
 	return (
-		<div>
+		<div className='container m-3'>
 			<h1>Reglas de TU PRODE</h1>
 			<p>
 				El que más puntaje saca al finalizar el torneo será el ganador.
