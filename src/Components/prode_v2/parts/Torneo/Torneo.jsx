@@ -322,16 +322,11 @@ const Torneo = () => {
 								<div className='participants'>
 									<label>Tercero</label>
 									<SelectorEquipo
-										equipos={[
-											getTorneoByKey('final-a') ===
-											getTorneoByKey('semi-a-1')
-												? getTorneoByKey('semi-a-1')
-												: getTorneoByKey('semi-a-2'),
-											getTorneoByKey('final-b') ===
-											getTorneoByKey('semi-b-1')
-												? getTorneoByKey('semi-b-1')
-												: getTorneoByKey('semi-b-2'),
-										]}
+										equipos={
+											[
+												// getTorneoByKey('final-a') === getTorneoByKey('campeon')? getTorneoByKey('final-b') : getTorneoByKey('final-a'),
+											]
+										}
 										keySelector='tercero'
 										onChange={handleOnChangeTorneo}
 										titleEmptyValue='TERCERO'
