@@ -13,9 +13,10 @@ const Torneo = () => {
 
 	return (
 		<div>
+			<h2 className='mt-4'>Llaves</h2>
 			<h4 className='mt-4'>
-				Elija los equipos primeros y segundos de cada grupo
-				respectivamente.
+				Complete las llaves de izquierda a derecha y de arriba hacia
+				abajo.
 			</h4>
 			<div className='bracket'>
 				<section className='round of16'>
@@ -322,12 +323,16 @@ const Torneo = () => {
 								<div className='participants'>
 									<label>Tercero</label>
 									<SelectorEquipo
-										equipos={
-											[
-												getTorneoByKey('final-a') === getTorneoByKey('semi-a-1')? getTorneoByKey('semi-a-2') : getTorneoByKey('semi-a-1'),
-												getTorneoByKey('final-b') === getTorneoByKey('semi-b-1')? getTorneoByKey('semi-b-2') : getTorneoByKey('semi-b-1'),
-											]
-										}
+										equipos={[
+											getTorneoByKey('final-a') ===
+											getTorneoByKey('semi-a-1')
+												? getTorneoByKey('semi-a-2')
+												: getTorneoByKey('semi-a-1'),
+											getTorneoByKey('final-b') ===
+											getTorneoByKey('semi-b-1')
+												? getTorneoByKey('semi-b-2')
+												: getTorneoByKey('semi-b-1'),
+										]}
 										keySelector='tercero'
 										onChange={handleOnChangeTorneo}
 										titleEmptyValue='TERCERO'
