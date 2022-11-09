@@ -1,4 +1,4 @@
-import { getById, store } from './../firebaseService';
+import { getById, store, getAll } from './../firebaseService';
 import { firebaseFolder } from '../firebaseFolders';
 
 export const getdatauserfromid = async uid => {
@@ -15,4 +15,8 @@ export const storeUserData = async (uid, displayName, lastname, phone) => {
 		phone,
 	};
 	return store(uid, firebaseFolder.DATA_USUARIOS, userdata);
+};
+
+export const getAllUsers = async () => {
+	return await getAll(firebaseFolder.DATA_USUARIOS);
 };
