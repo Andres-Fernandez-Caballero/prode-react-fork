@@ -36,3 +36,17 @@ export const resultadosconverter = {
 		return grupos;
 	},
 };
+
+export const getPuntajeTotalByResultado = resultado => {
+	const puntajeTorneo = Object.values(resultado.torneo).reduce(
+		(accumulator, currentValue) => accumulator + currentValue,
+		0,
+	);
+	const puntajePreliminares = Object.values(resultado.preliminares).reduce(
+		(accumulator, currentValue) => accumulator + currentValue,
+		0,
+	);
+	console.log('puntajeTorneo', puntajeTorneo);
+	console.log('puntajePreliminares', puntajePreliminares);
+	return puntajeTorneo + puntajePreliminares;
+};

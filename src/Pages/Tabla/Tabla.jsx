@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
-import { getAllProdesResultados } from '../../database/services/resultadosService';
+import { getresultadosuserprode } from '../../database/services/resultadosService';
 import { getAllUsers } from '../../database/services/usuariosService';
+import { getPuntajeTotalByResultado } from './../../utils/resultadosConverter';
+
 import FilaResultado from './FilaResultado';
-// import Loading from '../../Components/Loading';
+import Loading from '../../Components/Loading';
 
 const Tabla = () => {
 	const [isLoading, setIsLoading] = useState(true);
@@ -11,19 +13,22 @@ const Tabla = () => {
 	useEffect(() => {
 		const obtenerYordenarResultados = async () => {
 			const usuarios = await getAllUsers();
-			console.log(usuarios);
-			const resultados = await getAllProdesResultados();
-			resultados.forEach(resultado => {
-				const getPuntajeTotalByResultado = resultado => {
-					const puntajetorneo = Object.values(
-						resultado.torneo,
-					).reduce((a, b) => a + b, 0);
-					const puntajepreliminar = Object.values(
-						resultado.preliminares,
-					).reduce((a, b) => a + b, 0);
-					return puntajetorneo + puntajepreliminar;
+			console.log('usuarios', usuarios);
+
+			const resultadosPrometidos = usuarios.map(async usuario => {
+				const r = await getresultadosuserprode(usuario.userid);
+				const puntajeUsuario = {
+					userid: usuario.userid,
+					displayName: usuario.displayName,
 				};
-				resultado.puntajetotal = getPuntajeTotalByResultado(resultado);
+
+				console.log(`puntos de ${usuario.displayName}`, r);
+				if (r === null) {
+					puntajeUsuario.puntaje = 0;
+				} else {
+					puntajeUsuario.puntaje = getPuntajeTotalByResultado(r);
+				}
+				return puntajeUsuario;
 			});
 
 			const ordenarpuntajemayor = (a, b) => {
@@ -34,21 +39,22 @@ const Tabla = () => {
 				}
 			};
 
+			setresultados(await Promise.all(resultadosPrometidos));
 			if (resultados && resultados.length > 0) {
-				const resultadosordenados =
-					resultados.sort(ordenarpuntajemayor);
-				setresultados(resultadosordenados);
+				setresultados(resultados.sort(ordenarpuntajemayor));
 			}
 		};
-		setIsLoading(true);
+
 		obtenerYordenarResultados().then(() => {
 			setIsLoading(false);
 		});
 	}, []);
+
+	console.log('resultados', resultados);
 	return (
 		<>
 			{isLoading ? (
-				<FilaResultado />
+				<Loading />
 			) : (
 				<div>
 					{resultados.length === 0 ? (
@@ -65,10 +71,10 @@ const Tabla = () => {
 								</tr>
 							</thead>
 							<tbody>
-								{resultados.map((resultado, index) => (
+								{resultados.map(resultado => (
 									<FilaResultado
-										key={index}
-										index={index}
+										key={resultado.userid}
+										index={resultados.indexOf(resultado)}
 										resultado={resultado}
 									/>
 								))}
