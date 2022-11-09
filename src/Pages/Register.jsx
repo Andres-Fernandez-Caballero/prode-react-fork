@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import Authconsumer from '../Hooks/UseAuth';
 import { useNavigate } from 'react-router-dom';
+import Loading from '../Components/Loading';
 
 export const Register = () => {
+	const [isLoading, setIsLoading] = useState(false);
 	const { registrarse } = Authconsumer();
 	const navigate = useNavigate();
 	const inputinicial = {
@@ -21,7 +23,7 @@ export const Register = () => {
 
 	const handleOnSubmit = evento => {
 		evento.preventDefault();
-
+		setIsLoading(true);
 		if (
 			input.name === '' ||
 			input.email === '' ||
@@ -54,83 +56,95 @@ export const Register = () => {
 				console.log('credentials', authusercredentials);
 				alert('Usuario Registrado');
 				navigate('/reglas');
+				setIsLoading(false);
 			})
 			.catch(error => {
 				console.log(error);
 				alert('Error al registrarse');
+				setIsLoading(false);
 			});
 	};
 
 	return (
-		<div className='m-5'>
-			<h1>Registro</h1>
-			<form onSubmit={handleOnSubmit}>
-				<div className='row'>
-					<div className='col-md-6'>
-						<label className='form-label'>Apellido:</label>
-						<input
-							className='form-control'
-							type='text'
-							name='lastname'
-							onChange={handleOnChange}
-						></input>
-					</div>
-					<div className='col-md-6'>
-						<label className='form-label'>Nombre:</label>
-						<input
-							className='form-control'
-							type='text'
-							name='name'
-							onChange={handleOnChange}
-						></input>
-					</div>
-				</div>
+		<>
+			{isLoading ? (
+				<Loading />
+			) : (
+				<div className='m-5'>
+					<h1>Registro</h1>
+					<form onSubmit={handleOnSubmit}>
+						<div className='row'>
+							<div className='col-md-6'>
+								<label className='form-label'>Apellido:</label>
+								<input
+									className='form-control'
+									type='text'
+									name='lastname'
+									onChange={handleOnChange}
+								></input>
+							</div>
+							<div className='col-md-6'>
+								<label className='form-label'>Nombre:</label>
+								<input
+									className='form-control'
+									type='text'
+									name='name'
+									onChange={handleOnChange}
+								></input>
+							</div>
+						</div>
 
-				<div className='row'>
-					<div className='col-md-6'>
-						<label className='form-label'>Email:</label>
-						<input
-							className='form-control'
-							type='text'
-							name='email'
-							onChange={handleOnChange}
-						></input>
-					</div>
-					<div className='col-md-6'>
-						<label className='form-label'>Teléfono:</label>
-						<input
-							className='form-control'
-							type='text'
-							name='phone'
-							onChange={handleOnChange}
-						></input>
-					</div>
-				</div>
-				<div className='row'>
-					<div className='col-md-6'>
-						<label className='form-label'>Contraseña:</label>
-						<input
-							className='form-control'
-							type='password'
-							name='password'
-							onChange={handleOnChange}
-						></input>
-					</div>
-					<div className='col-md-6'>
-						<label className='form-label'>Repita contraseña:</label>
-						<input
-							className='form-control'
-							type='password'
-							name='repeatpassword'
-							onChange={handleOnChange}
-						></input>
-					</div>
-				</div>
+						<div className='row'>
+							<div className='col-md-6'>
+								<label className='form-label'>Email:</label>
+								<input
+									className='form-control'
+									type='text'
+									name='email'
+									onChange={handleOnChange}
+								></input>
+							</div>
+							<div className='col-md-6'>
+								<label className='form-label'>Teléfono:</label>
+								<input
+									className='form-control'
+									type='text'
+									name='phone'
+									onChange={handleOnChange}
+								></input>
+							</div>
+						</div>
+						<div className='row'>
+							<div className='col-md-6'>
+								<label className='form-label'>
+									Contraseña:
+								</label>
+								<input
+									className='form-control'
+									type='password'
+									name='password'
+									onChange={handleOnChange}
+								></input>
+							</div>
+							<div className='col-md-6'>
+								<label className='form-label'>
+									Repita contraseña:
+								</label>
+								<input
+									className='form-control'
+									type='password'
+									name='repeatpassword'
+									onChange={handleOnChange}
+								></input>
+							</div>
+						</div>
 
-				<button className='my-3 btn btn-primary' type='submit'>
-					Registrar
-				</button>
-			</form>
-		</div>
+						<button className='my-3 btn btn-primary' type='submit'>
+							Registrar
+						</button>
+					</form>
+				</div>
+			)}
+		</>
 	);
 };
