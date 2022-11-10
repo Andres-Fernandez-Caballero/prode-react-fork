@@ -13,7 +13,6 @@ const Tabla = () => {
 	useEffect(() => {
 		const obtenerYordenarResultados = async () => {
 			const usuarios = await getAllUsers();
-			console.log('usuarios', usuarios);
 
 			const resultadosPrometidos = usuarios.map(async usuario => {
 				const r = await getresultadosuserprode(usuario.userid);
@@ -21,8 +20,6 @@ const Tabla = () => {
 					userid: usuario.userid,
 					displayName: usuario.displayName,
 				};
-
-				console.log(`puntos de ${usuario.displayName}`, r);
 				if (r === null) {
 					puntajeUsuario.puntaje = 0;
 				} else {
@@ -31,18 +28,12 @@ const Tabla = () => {
 				return puntajeUsuario;
 			});
 
-			const ordenarpuntajemayor = (a, b) => {
-				if (a.puntajetotal < b.puntajetotal) {
-					return 1;
-				} else {
-					return -1;
-				}
-			};
+			const ordenarpuntajemayor = (a, b) => b.puntaje - a.puntaje;
 
-			setresultados(await Promise.all(resultadosPrometidos));
-			if (resultados && resultados.length > 0) {
-				setresultados(resultados.sort(ordenarpuntajemayor));
-			}
+			const resultadosEjecutados = await Promise.all(
+				resultadosPrometidos,
+			);
+			setresultados(resultadosEjecutados.sort(ordenarpuntajemayor));
 		};
 
 		obtenerYordenarResultados().then(() => {
@@ -50,7 +41,6 @@ const Tabla = () => {
 		});
 	}, []);
 
-	console.log('resultados', resultados);
 	return (
 		<>
 			{isLoading ? (
