@@ -8,3 +8,15 @@ export const daysLeftToCloseProde = () => {
 
 	return endOfProde.diff(now, 'days');
 };
+
+/***
+ * @param {moment} date
+ */
+export const daysLeftTo = date => {
+	const now = moment();
+	const endOfProde = moment(date);
+	console.log('now', now);
+	console.log('endOfProde', endOfProde);
+
+	return endOfProde.diff(now, 'days');
+};
