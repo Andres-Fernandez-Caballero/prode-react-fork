@@ -1,8 +1,7 @@
-import moment from 'moment';
 import { Link } from 'react-router-dom';
-import { daysLeftTo } from '../../utils/dateUtils';
+import { daysLefToOpenProde } from '../../utils/dateUtils';
 const FilaResultado = ({ index, resultado }) => {
-	const linkIsActive = daysLeftTo(moment('2022-11-20:00:00:00')) > 0;
+	const linkIsActive = daysLefToOpenProde() < 0;
 
 	return (
 		<tr>

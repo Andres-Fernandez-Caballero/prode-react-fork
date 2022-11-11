@@ -9,14 +9,13 @@ export const daysLeftToCloseProde = () => {
 	return endOfProde.diff(now, 'days');
 };
 
+export const daysLefToOpenProde = () => (daysLeftTo(process.env.REACT_APP_OPEN_PRODE_DATE));
+
 /***
- * @param {moment} date
+ * @param {string} date
  */
 export const daysLeftTo = date => {
 	const now = moment();
 	const endOfProde = moment(date);
-	console.log('now', now);
-	console.log('endOfProde', endOfProde);
-
 	return endOfProde.diff(now, 'days');
 };
