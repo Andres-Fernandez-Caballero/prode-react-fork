@@ -7,6 +7,7 @@ import FilaResultado from './FilaResultado';
 import Loading from '../../Components/Loading';
 import { daysLeftTo } from '../../utils/dateUtils';
 import moment from 'moment';
+import emptyStadium from './../../assets/empty_stadium.jpg';
 
 const Tabla = () => {
 	const [isLoading, setIsLoading] = useState(true);
@@ -54,39 +55,55 @@ const Tabla = () => {
 							No hay resultados!
 						</div>
 					) : (
-						<div className='p-4'>
+						<div>
 							{daysLeft > 0 ? (
-								<h4 className='text-secondary my-4'>
-									Quedan {daysLeft} dias para que puedas ver
-									los prodes de tus amigos! <span>⏳</span>
-								</h4>
+								<div className='alert' role='alert'>
+									<h4 className='text-secondary my-4'>
+										Quedan {daysLeft} dias para que puedas
+										ver los prodes de tus amigos!{' '}
+										<span>⏳</span>
+									</h4>
+									<img
+										src={emptyStadium}
+										className='img-fluid'
+										alt='empty stadium'
+										width={800}
+										height={700}
+									/>
+								</div>
 							) : (
-								<h4 className='text-secondary my-4'>
-									Has Click sobre el nombre de tu amigo para
-									ver su prode ⚽!
-								</h4>
+								<div className='p-4'>
+									<div
+										className='alert alert-success'
+										role='alert'
+									>
+										<h4 className='text-secondary'>
+											Has Click sobre el nombre de tu
+											amigo para ver su prode ⚽!
+										</h4>
+									</div>
+									<table className='table'>
+										<thead>
+											<tr>
+												<th scope='col'>Puesto</th>
+												<th scope='col'>Nombre</th>
+												<th scope='col'>Puntaje</th>
+											</tr>
+										</thead>
+										<tbody>
+											{resultados.map(resultado => (
+												<FilaResultado
+													key={resultado.userid}
+													index={resultados.indexOf(
+														resultado,
+													)}
+													resultado={resultado}
+												/>
+											))}
+										</tbody>
+									</table>
+								</div>
 							)}
-
-							<table className='table'>
-								<thead>
-									<tr>
-										<th scope='col'>Puesto</th>
-										<th scope='col'>Nombre</th>
-										<th scope='col'>Puntaje</th>
-									</tr>
-								</thead>
-								<tbody>
-									{resultados.map(resultado => (
-										<FilaResultado
-											key={resultado.userid}
-											index={resultados.indexOf(
-												resultado,
-											)}
-											resultado={resultado}
-										/>
-									))}
-								</tbody>
-							</table>
 						</div>
 					)}
 				</div>
