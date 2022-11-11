@@ -5,11 +5,13 @@ import { getPuntajeTotalByResultado } from './../../utils/resultadosConverter';
 
 import FilaResultado from './FilaResultado';
 import Loading from '../../Components/Loading';
+import { daysLeftTo } from '../../utils/dateUtils';
+import moment from 'moment';
 
 const Tabla = () => {
 	const [isLoading, setIsLoading] = useState(true);
 	const [resultados, setresultados] = useState([]);
-
+	const daysLeft = daysLeftTo(moment('2022-11-20:00:00:00'));
 	useEffect(() => {
 		const obtenerYordenarResultados = async () => {
 			const usuarios = await getAllUsers();
@@ -52,24 +54,40 @@ const Tabla = () => {
 							No hay resultados!
 						</div>
 					) : (
-						<table className='table'>
-							<thead>
-								<tr>
-									<th scope='col'>Puesto</th>
-									<th scope='col'>Nombre</th>
-									<th scope='col'>Puntaje</th>
-								</tr>
-							</thead>
-							<tbody>
-								{resultados.map(resultado => (
-									<FilaResultado
-										key={resultado.userid}
-										index={resultados.indexOf(resultado)}
-										resultado={resultado}
-									/>
-								))}
-							</tbody>
-						</table>
+						<div className='p-4'>
+							{daysLeft > 0 ? (
+								<h4 className='text-secondary my-4'>
+									Quedan {daysLeft} dias para que puedas ver
+									los prodes de tus amigos! <span>⏳</span>
+								</h4>
+							) : (
+								<h4 className='text-secondary my-4'>
+									Has Click sobre el nombre de tu amigo para
+									ver su prode ⚽!
+								</h4>
+							)}
+
+							<table className='table'>
+								<thead>
+									<tr>
+										<th scope='col'>Puesto</th>
+										<th scope='col'>Nombre</th>
+										<th scope='col'>Puntaje</th>
+									</tr>
+								</thead>
+								<tbody>
+									{resultados.map(resultado => (
+										<FilaResultado
+											key={resultado.userid}
+											index={resultados.indexOf(
+												resultado,
+											)}
+											resultado={resultado}
+										/>
+									))}
+								</tbody>
+							</table>
+						</div>
 					)}
 				</div>
 			)}
