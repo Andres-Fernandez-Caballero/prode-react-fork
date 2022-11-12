@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { daysLeftToCloseProde } from '../utils/dateUtils';
 
 export const Login = () => {
 	const navigate = useNavigate();
@@ -17,14 +18,16 @@ export const Login = () => {
 				alt='copa del mundo'
 			/>
 
+			{daysLeftToCloseProde() > 0 && (
+				<button
+					className='btn btn-primary my-2'
+					onClick={handleOnClickRegister}
+				>
+					Regristrate
+				</button>
+			)}
 			<button
-				className='btn btn-primary my-2'
-				onClick={handleOnClickRegister}
-			>
-				Regristrate
-			</button>
-			<button
-				className='btn btn-secondary'
+				className='btn btn-secondary my-2'
 				onClick={() => {
 					navigate('/logintuprode');
 				}}
