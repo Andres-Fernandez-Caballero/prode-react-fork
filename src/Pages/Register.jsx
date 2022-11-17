@@ -1,12 +1,21 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Authconsumer from '../Hooks/UseAuth';
 import { useNavigate } from 'react-router-dom';
 import Loading from '../Components/Loading';
+import { daysLeftToCloseProde } from '../utils/dateUtils';
 
 export const Register = () => {
+	const navigate = useNavigate();
+
+	useEffect(() => {
+		if (daysLeftToCloseProde() <= 0) {
+			navigate('/');
+		}
+	}, []);
+
+	console.log(daysLeftToCloseProde());
 	const [isLoading, setIsLoading] = useState(false);
 	const { registrarse } = Authconsumer();
-	const navigate = useNavigate();
 	const inputinicial = {
 		email: '',
 		name: '',
