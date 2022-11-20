@@ -7,7 +7,7 @@ export const Home = () => {
 			<h1>Home</h1>
 
 			<h2>
-				{process.env.REACT_APP_CANTIDAD_USUARIOS} Personas inscriptas
+				{process.env.REACT_APP_CANTIDAD_USUARIO} Personas inscriptas 👨‍👩‍👧‍👦
 			</h2>
 
 			<button onClick={signedout} className='btn btn-danger text-center'>
