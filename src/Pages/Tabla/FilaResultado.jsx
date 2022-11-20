@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { daysLefToOpenProde } from '../../utils/dateUtils';
 const FilaResultado = ({ index, resultado }) => {
-	const linkIsActive = daysLefToOpenProde() < 0;
+	const linkIsActive = true;
 
 	return (
 		<tr>
