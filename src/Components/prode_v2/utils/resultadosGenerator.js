@@ -86,10 +86,18 @@ const calcularPuntosPreliminar = (prodeUsuario, superProde) => {
 
 const calcularPuntosTorneo = (prodeUsuario, superProde) => {
 	const puntosTorneo = {};
+
 	Object.keys(superProde.torneo).forEach(prodeKey => {
 		const etapa = prodeKey.split('-')[0].toUpperCase();
 		const etapaKey = 'ACIERTO_' + etapa;
 
+		// const paisGanador = superProde.torneo[prodeKey];
+		const keysEnEtapa = Object.keys(superProde.torneo).filter(
+			k => k.split('-')[0] === etapa,
+		);
+		const paisesEnEtapa = keysEnEtapa.map(k => superProde.torneo[k]);
+
+		console.log('paisesEnEtapa', paisesEnEtapa);
 		if (prodeUsuario.torneo[prodeKey] === superProde.torneo[prodeKey]) {
 			puntosTorneo[prodeKey] = puntaje.puntajetorneo[etapaKey];
 		}
