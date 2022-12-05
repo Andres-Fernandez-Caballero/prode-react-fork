@@ -6,9 +6,9 @@ export const generarPuntosIniciales = () => {
 	gruposEtapaPreliminares.forEach(grupo =>
 		grupo.partidos.forEach(
 			partido =>
-				(preliminaresIniciales[
-					`${grupo.nombre}-${partido.equipoA}-${partido.equipoB}`
-				] = 0),
+			(preliminaresIniciales[
+				`${grupo.nombre}-${partido.equipoA}-${partido.equipoB}`
+			] = 0),
 		),
 	);
 
@@ -84,34 +84,49 @@ const calcularPuntosPreliminar = (prodeUsuario, superProde) => {
 	return puntosPreliminar;
 };
 
+
+const generarObjetoResultadosPaisesPorEtapa = (superProde) => {
+	const resultadosPaisesPorEtapa = {
+		campeon: [],
+		tercero: [],
+		final: [],
+		semi: [],
+		cuartos: [],
+	};
+	Object.keys(superProde.torneo).forEach(torneoKey => {
+		const etapaKey = torneoKey.split('-')[0];
+		const pais = superProde.torneo[torneoKey];
+
+		resultadosPaisesPorEtapa[etapaKey].push(pais);
+
+	})
+	return resultadosPaisesPorEtapa;
+
+}
+
+
 const calcularPuntosTorneo = (prodeUsuario, superProde) => {
 	const puntosTorneo = {};
+	const paisesEnEtapaSuperProde = generarObjetoResultadosPaisesPorEtapa(superProde);
+	console.log('paisesEnEtapaSuperProde', paisesEnEtapaSuperProde);
 
-	Object.keys(superProde.torneo).forEach(prodeKey => {
-		const etapa = prodeKey.split('-')[0].toUpperCase();
-		const etapaKey = 'ACIERTO_' + etapa;
+	Object.keys(prodeUsuario.torneo).forEach(key => {
+		const etapa = key.split('-')[0];
+		const keyPuntajeTorneo = 'ACIERTO_' + etapa.toUpperCase();
+		const pais = prodeUsuario.torneo[key];
+		const paises = paisesEnEtapaSuperProde[etapa];
 
-		// const paisGanador = superProde.torneo[prodeKey];
-		const keysEnEtapa = Object.keys(superProde.torneo).filter(
-			k => k.split('-')[0] === etapa,
-		);
-		const paisesEnEtapa = keysEnEtapa.map(k => superProde.torneo[k]);
+		console.log('pais', pais);
+		console.log('paises', paises);
 
-		console.log('paisesEnEtapa', paisesEnEtapa);
-		if (prodeUsuario.torneo[prodeKey] === superProde.torneo[prodeKey]) {
-			puntosTorneo[prodeKey] = puntaje.puntajetorneo[etapaKey];
+		if (paises.includes(pais)) {
+			puntosTorneo[key] = puntaje.puntajetorneo[keyPuntajeTorneo];
+		} else {
+			puntosTorneo[key] = puntaje.puntajetorneo.SIN_ACIERTO;
 		}
 
-		if (
-			prodeUsuario.torneo[prodeKey] === '' ||
-			superProde.torneo[prodeKey] === ''
-		) {
-			puntosTorneo[prodeKey] = puntaje.puntajetorneo.SIN_ACIERTO;
-		}
+	})
+	console.log('puntosTorneo', puntosTorneo);
 
-		if (prodeUsuario.torneo[prodeKey] !== superProde.torneo[prodeKey]) {
-			puntosTorneo[prodeKey] = puntaje.puntajetorneo.SIN_ACIERTO;
-		}
-	});
 	return puntosTorneo;
 };
